@@ -6,17 +6,23 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Emojis - Push & Clear</title>
+  <title>9. My Emojis - Pop & Shift - updated</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Baloo&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <h1>My Emojis</h1>
+  <h1>Reese's Emojis</h1>
   <div id="emoji-container"></div>
   <input type="text" id="emoji-input" placeholder="type an emoji 🎉">
   <div class="buttons-wrapper">
-    <button id="push-btn">Add to end</button>
+    <button id="push-btn">Add to the end</button>
+    <button id="unshift-btn">Add to the beginning</button>
+  </div>
+
+  <div class="buttons-wrapper">
+    <button id="pop-btn">Remove from the end</button>
+    <button id="shift-btn">Remove from the beginning</button>
   </div>
   <script src="index.js"></script>
 </body>

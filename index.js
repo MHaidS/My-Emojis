@@ -1,31 +1,45 @@
-// IN PROGRESS
+// Make the pop and shift buttons work as well
 
-// Push the emoji into the myEmoji's array, and clear the input field
-// However, if the input value is empty, don't do anything
-
-const myEmojis = ["👨‍💻", "⛷", "🍲"];
+const myEmojis = ["🦋", "👨‍💻", "💻", "🌻"];
 const emojiContainer = document.getElementById("emoji-container");
+const emojiInput = document.getElementById("emoji-input");
+const pushBtn = document.getElementById("push-btn");
+const unshiftBtn = document.getElementById("unshift-btn");
+const popBtn = document.getElementById("pop-btn");
+const shiftBtn = document.getElementById("shift-btn");
 
-for (let i = 0; i < myEmojis.length; i++) {
-  const emoji = document.createElement("span");
-  emoji.textContent = myEmojis[i];
-  emojiContainer.append(emoji);
+function renderEmojis() {
+  emojiContainer.innerHTML = "";
+  for (let i = 0; i < myEmojis.length; i++) {
+    const emoji = document.createElement("span");
+    emoji.textContent = myEmojis[i];
+    emojiContainer.append(emoji);
+  }
 }
+renderEmojis();
 
-const pushBtn = document.getElememtById("push-btn");
 pushBtn.addEventListener("click", function () {
-  //  => grab hold of the 'input' element
-  const emojiInput = document.getElementById("emoji-input");
-  // console.log(emojiInput.value);
-
   if (emojiInput.value) {
-    // => push the emoji into the myEmojis array
     myEmojis.push(emojiInput.value);
-    // => clear out the input field
     emojiInput.value = "";
-    console.log(myEmojis);
+    renderEmojis();
   }
 });
 
-// OUTPUT:
-// ["👨‍💻", "⛷", "🍲", "🔥"]
+unshiftBtn.addEventListener("click", function () {
+  if (emojiInput.value) {
+    myEmojis.unshift(emojiInput.value);
+    emojiInput.value = "";
+    renderEmojis();
+  }
+});
+
+popBtn.addEventListener("click", function () {
+  myEmojis.pop();
+  renderEmojis();
+});
+
+shiftBtn.addEventListener("click", function () {
+  myEmojis.shift();
+  renderEmojis();
+});
